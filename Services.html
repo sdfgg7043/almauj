@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا - شركة الموج للمعارض الدولية</title>
+    <link rel="icon" type="image/png" href="image/logo almouj .png" sizes="32*32">
+    <meta name="description" content="نقدم مجموعة شاملة من الخدمات المتخصصة في تنظيم المعارض والمؤتمرات الدولية بأعلى معايير الجودة والاحترافية.">
+    <meta name="keywords" content="خدمات المعارض, تنظيم مؤتمرات, تصميم أجنحة, دعم لوجستي, الموج إكسبو">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#daa520',
+                        accent: '#0ea5e9'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px )', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Advanced Styles -->
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.1 ), rgba(30,64,175,0.8));
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: translateY(-10px) scale(1.1);
+            color: #1e40af;
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af, #0ea5e9);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-item.active .faq-content {
+            max-height: 500px; /* Adjust as needed */
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <header class="bg-white/95 backdrop-blur-sm shadow-md fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html">  <img src="image/logo almouj .png" alt="Al Mouj Logo" class="h-full" width="160" >  </a>
+            
+            <nav class="hidden md:flex items-center space-x-1 space-x-reverse">
+                <a href="index.html" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">الرئيسية</a>
+                <a href="index.html#about" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">من نحن</a>
+                <a href="index.html#exhibitions" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">المعارض</a>
+                <a href="services.html" class="nav-link px-4 py-2 text-primary font-bold transition-all duration-300 bg-primary/10 rounded-lg">خدماتنا</a>
+                <a href="index.html#contact" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">اتصل بنا</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <button class="bg-white border border-gray-300 rounded-button px-3 py-1 text-sm text-gray-700 hover:bg-gray-50 transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                    <span class="flex items-center">
+                        <span class="mr-1">English</span>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-global-line"></i>
+                        </div>
+                    </span>
+                </button>
+                <button class="btn-primary text-white rounded-button px-5 py-2 whitespace-nowrap" onclick="window.location.href='https://typecard.com/418518d1/'">
+                    <span class="flex items-center">
+                        <span class="mr-1">تواصل معنا</span>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                    </span>
+                </button>               
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-lg transition-colors" id="mobile-menu-button">
+                    <i class="ri-menu-line text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg">
+            <div class="container mx-auto px-4 py-2">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">الرئيسية</a>
+                    <a href="index.html#about" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">من نحن</a>
+                    <a href="index.html#exhibitions" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">المعارض</a>
+                    <a href="services.html" class="mobile-nav-link px-4 py-3 text-primary bg-primary/10 font-bold transition-all duration-300 rounded-lg">خدماتنا</a>
+                    <a href="index.html#contact" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 bg-gray-100">
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20conference%20hall%20with%20business%20professionals%20planning%20an%20event%2C%20blueprints%20and%20laptops%2C%20bright%20and%20professional%20atmosphere%2C%20blue%20and%20gold%20accents&width=1920&height=1080&seq=services_hero&orientation=landscape' );"></div>
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div class="max-w-4xl text-center mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    خدماتنا المتكاملة لنجاح فعالياتكم
+                </h1>
+                <p class="text-xl text-white/90 mb-8">
+                    نقدم حلولاً شاملة ومبتكرة لتنظيم المعارض والمؤتمرات، تضمن تحقيق أهدافكم وتجاوز توقعاتكم.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services-list" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">ما نقدمه لكم</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">من الفكرة إلى التنفيذ، نحن شريككم في كل خطوة لضمان تجربة استثنائية ونتائج مثمرة.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-6 service-icon">
+                        <i class="ri-calendar-event-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">تنظيم المعارض الدولية</h3>
+                    <p class="text-gray-700">نخطط وننفذ معارض دولية متكاملة على المستويين المحلي والعالمي، مما يفتح آفاقًا جديدة لأعمالكم.</p>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-6 service-icon">
+                        <i class="ri-global-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">تسهيل المشاركات الدولية</h3>
+                    <p class="text-gray-700">نسهل للشركات العراقية المشاركة في أبرز المعارض والمؤتمرات حول العالم، ونوفر لهم الدعم الكامل.</p>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-6 service-icon">
+                        <i class="ri-truck-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">الدعم اللوجستي المتكامل</h3>
+                    <p class="text-gray-700">نوفر حزمًا لوجستية شاملة تشمل التأشيرات، حجوزات الطيران، الإقامة، والنقل للمشاركين.</p>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-6 service-icon">
+                        <i class="ri-layout-3-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">تصميم وبناء الأجنحة</h3>
+                    <p class="text-gray-700">نصمم ونبني أجنحة عرض مبتكرة وجذابة تعكس هوية علامتكم التجارية بأفضل صورة ممكنة.</p>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-6 service-icon">
+                        <i class="ri-translate-2 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">الترجمة والتغطية الإعلامية</h3>
+                    <p class="text-gray-700">نقدم خدمات ترجمة فورية وتغطية إعلامية احترافية لضمان وصول رسالتكم بوضوح لأوسع جمهور.</p>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full text-primary mb-6 service-icon">
+                        <i class="ri-lightbulb-flash-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">الاستشارات التسويقية</h3>
+                    <p class="text-gray-700">نقدم استشارات متخصصة حول أفضل استراتيجيات دخول الأسواق الجديدة وفرص الاستثمار المتاحة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">أسئلة شائعة</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">إجابات لأكثر الاستفسارات التي تصلنا حول خدماتنا.</p>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-4" id="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+                    <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-800">ما هي الدول التي تنظمون فيها المعارض؟</h3>
+                        <i class="ri-add-line text-2xl text-primary faq-icon"></i>
+                    </div>
+                    <div class="faq-content">
+                        <p class="p-6 text-gray-700 border-t border-gray-200">
+                            نقوم بتنظيم وتسهيل المشاركة في المعارض الدولية في العديد من الدول الرائدة صناعياً وتجارياً مثل ألمانيا، بريطانيا، تركيا، الإمارات العربية المتحدة، إيطاليا، فرنسا، والصين. كما أننا مستعدون لدراسة تنظيم فعاليات في دول أخرى بناءً على طلب عملائنا.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-800">هل تقدمون خدمات التأشيرة للمشاركين؟</h3>
+                        <i class="ri-add-line text-2xl text-primary faq-icon"></i>
+                    </div>
+                    <div class="faq-content">
+                        <p class="p-6 text-gray-700 border-t border-gray-200">
+                            نعم، بالتأكيد. خدمة الدعم اللوجستي لدينا تشمل المساعدة الكاملة في إجراءات الحصول على التأشيرات (الفيزا) من السفارات المعنية، بالإضافة إلى حجز تذاكر الطيران، الإقامة في الفنادق، وترتيب وسائل النقل الداخلية لضمان راحة المشاركين.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-800">ما نوع الدعم الذي تقدمونه أثناء فترة المعرض؟</h3>
+                        <i class="ri-add-line text-2xl text-primary faq-icon"></i>
+                    </div>
+                    <div class="faq-content">
+                        <p class="p-6 text-gray-700 border-t border-gray-200">
+                            نوفر فريق عمل متخصص ومتواجد معكم طوال فترة المعرض لتقديم الدعم الفني والإداري. يشمل ذلك المساعدة في حل أي مشاكل تقنية، التنسيق مع إدارة المعرض، توفير خدمات الترجمة، وضمان أن كل شيء يسير بسلاسة من لحظة وصولكم حتى مغادرتكم.
+                        </p>
+                    </div>
+                </div>
+                 <!-- FAQ Item 4 -->
+                 <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-800">هل يمكنكم تصميم جناح خاص لشركتي؟</h3>
+                        <i class="ri-add-line text-2xl text-primary faq-icon"></i>
+                    </div>
+                    <div class="faq-content">
+                        <p class="p-6 text-gray-700 border-t border-gray-200">
+                            نعم، لدينا فريق من المصممين والمنفذين المحترفين القادرين على تصميم وبناء أجنحة عرض مخصصة ومبتكرة. نعمل معكم لفهم رؤيتكم وتحويلها إلى جناح فريد يعكس هوية علامتكم التجارية ويجذب الزوار.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-accent">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">هل أنت مستعد لتوسيع أعمالك دولياً؟</h2>
+                <p class="text-xl text-white/90 mb-8">دعنا نكون شريكك في النجاح. تواصل معنا اليوم لبدء التخطيط لمشاركتك القادمة.</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+                    <button class="bg-white text-primary rounded-button px-8 py-3 text-lg font-medium hover:bg-gray-100 transition-all duration-300 hover:scale-105 whitespace-nowrap" onclick="window.location.href='index.html#contact'">
+                        <span class="flex items-center justify-center">
+                            <span>اطلب استشارة مجانية</span>
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-calendar-check-line"></i>
+                            </div>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <img src="image/logo almouj .png" alt="Al Mouj Logo" class="h-12 mb-4">
+                    <p class="text-gray-400 mb-6">شركة الموج إكسبو رائدة في تنظيم المعارض والمؤتمرات الدولية بمعايير عالمية وخبرات متميزة تجمع بين الاحترافية والابتكار.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.facebook.com/share/178eTQMvpR/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-gray-400 hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">روابط سريعة</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">الرئيسية</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition-colors">من نحن</a></li>
+                        <li><a href="index.html#exhibitions" class="text-gray-400 hover:text-white transition-colors">المعارض</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">خدماتنا</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">تواصل معنا</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start"><i class="ri-map-pin-line mt-1 mr-3 text-primary"></i><span>العراق - كربلاء - الروضتين</span></li>
+                        <li class="flex items-start"><i class="ri-phone-line mt-1 mr-3 text-primary"></i><span>009647801068802</span></li>
+                        <li class="flex items-start"><i class="ri-mail-line mt-1 mr-3 text-primary"></i><span>info@almoujexpo.org</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6">النشرة الإخبارية</h3>
+                    <p class="text-gray-400 mb-4">اشترك لتصلك آخر أخبار المعارض والفرص التجارية.</p>
+                    <form>
+                        <div class="flex">
+                            <input type="email" placeholder="بريدك الإلكتروني" class="w-full px-4 py-2 rounded-r-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-primary">
+                            <button type="submit" class="bg-primary text-white px-4 py-2 rounded-l-lg hover:bg-accent transition-colors">اشترك</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025 شركة الموج إكسبو. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        } );
+
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+
+        // FAQ Accordion
+        const faqContainer = document.getElementById('faq-container');
+        if (faqContainer) {
+            faqContainer.addEventListener('click', function(e) {
+                const question = e.target.closest('.faq-question');
+                if (question) {
+                    const item = question.parentElement;
+                    item.classList.toggle('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

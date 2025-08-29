@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعارض الدولية - شركة الموج للمعارض الدولية</title>
+    <link rel="icon" type="image/png" href="image/logo almouj .png" sizes="32*32">
+    <meta name="description" content="تصفح معارضنا الدولية الحالية والسابقة في مختلف القطاعات والمجالات التجارية.">
+    <meta name="keywords" content="معارض دولية, مؤتمرات, تنظيم فعاليات, الموج إكسبو, معارض تجارية">
+    
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#daa520',
+                        accent: '#0ea5e9'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px )', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(30,64,175,0.85));
+        }
+        .exhibition-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .exhibition-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+        }
+        .exhibition-card .exhibition-image {
+            transition: transform 0.5s ease;
+        }
+        .exhibition-card:hover .exhibition-image {
+            transform: scale(1.05);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af, #0ea5e9);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+        .tab-button.active {
+            background-color: #1e40af;
+            color: white;
+            box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    
+    <header class="bg-white/95 backdrop-blur-sm shadow-md fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html"> <img src="image/logo almouj .png" alt="Al Mouj Logo" class="h-full" width="160"> </a>
+            
+            <nav class="hidden md:flex items-center space-x-1 space-x-reverse">
+                <a href="index.html" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">الرئيسية</a>
+                <a href="index.html#about" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">من نحن</a>
+                <a href="exhibitions.html" class="nav-link px-4 py-2 text-primary font-bold transition-all duration-300 bg-primary/10 rounded-lg">المعارض</a>
+                <a href="services.html" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">خدماتنا</a>
+                <a href="index.html#contact" class="nav-link px-4 py-2 text-gray-800 hover:text-primary font-medium transition-all duration-300 hover:bg-primary/5 rounded-lg">اتصل بنا</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <button class="bg-white border border-gray-300 rounded-button px-3 py-1 text-sm text-gray-700 hover:bg-gray-50 transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                    <span class="flex items-center">
+                        <span class="mr-1">English</span>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-global-line"></i>
+                        </div>
+                    </span>
+                </button>
+                <button class="btn-primary text-white rounded-lg px-5 py-2 whitespace-nowrap" onclick="window.location.href='https://typecard.com/418518d1/'">
+                    <span class="flex items-center">
+                        <span class="mr-1">تواصل معنا</span>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                    </span>
+                </button> 
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-lg transition-colors" id="mobile-menu-button">
+                    <i class="ri-menu-line text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg">
+            <div class="container mx-auto px-4 py-2">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">الرئيسية</a>
+                    <a href="index.html#about" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">من نحن</a>
+                    <a href="exhibitions.html" class="mobile-nav-link px-4 py-3 text-primary bg-primary/10 font-bold transition-all duration-300 rounded-lg">المعارض</a>
+                    <a href="services.html" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">خدماتنا</a>
+                    <a href="index.html#contact" class="mobile-nav-link px-4 py-3 text-gray-800 hover:text-primary hover:bg-primary/5 font-medium transition-all duration-300 rounded-lg">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative pt-32 pb-20 bg-gray-800">
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=dynamic%20shot%20of%20a%20bustling%20international%20exhibition%20hall%2C%20diverse%20crowd%2C%20modern%20booths%2C%20blue%20and%20gold%20lighting%2C%20sense%20of%20energy%20and%20opportunity&width=1920&height=1080&seq=exhibitions_hero&orientation=landscape');"></div>
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div class="max-w-4xl text-center mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    بوابتكم إلى أهم المعارض الدولية
+                </h1>
+                <p class="text-xl text-white/90 mb-8">
+                    اكتشفوا مجموعة واسعة من المعارض الدولية المتخصصة التي نغطيها، وكونوا جزءًا من الأحداث التجارية الكبرى حول العالم.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <main class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-12" data-aos="fade-up">
+                <div class="bg-white rounded-full p-2 shadow-md">
+                    <button class="tab-button active px-6 py-3 text-base font-semibold rounded-full" data-tab="current">المعارض الحالية</button>
+                    <button class="tab-button px-6 py-3 text-base font-semibold rounded-full" data-tab="past">المعارض السابقة</button>
+                </div>
+            </div>
+
+            <div id="current-tab" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=MEDICA%20exhibition%20in%20D%C3%BCsseldorf%2C%20medical%20technology%2C%20healthcare%20professionals&width=600&height=400&seq=medica" alt="معرض ميديكا" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">حالي</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض ميديكا (MEDICA)</h3>
+                            <p class="text-gray-600 text-sm mb-4">أكبر حدث عالمي في التكنولوجيا الطبية والرعاية الصحية.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>دوسلدورف, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>17 - 20 نوفمبر 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full btn-primary text-white font-semibold py-2 px-4 rounded-lg" onclick="openModal('معرض ميديكا (MEDICA)', 'أكبر حدث عالمي في التكنولوجيا الطبية والرعاية الصحية، يقام سنويًا في دوسلدورف بألمانيا. يجمع آلاف الشركات من جميع أنحاء العالم لعرض أحدث الابتكارات والتقنيات الطبية.', 'دوسلدورف، ألمانيا', '17 - 20 نوفمبر 2025', 'الأطباء، الممرضين، شركات التكنولوجيا الطبية', 'ri-heart-pulse-line')">تفاصيل أكثر</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=Anuga%20food%20fair%20in%20Cologne%2C%20international%20food%20and%20beverages&width=600&height=400&seq=anuga" alt="معرض Anuga" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">حالي</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض Anuga للشركات الغذائية</h3>
+                            <p class="text-gray-600 text-sm mb-4">حدث مهم يُنظم كل ثلاث سنوات، موجه للشركات العاملة في مجال صناعة الأغذية.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>كولونيا, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>4 - 8 أكتوبر 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full btn-primary text-white font-semibold py-2 px-4 rounded-lg" onclick="openModal('معرض Anuga للشركات الغذائية', 'يُعد معرض Anuga من أكبر المعارض العالمية المتخصصة في قطاع الأغذية والمشروبات، حيث يجمع أهم الشركات والخبراء لعرض أحدث المنتجات والابتكارات في هذا المجال.', 'كولونيا، ألمانيا', '4 - 8 أكتوبر 2025', 'شركات الأغذية والمشروبات، المستوردون، الموزعون', 'ri-restaurant-line')">تفاصيل أكثر</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=UK%20Construction%20Week%20exhibition%2C%20building%20site%2C%20construction%20machinery&width=600&height=400&seq=ukcw" alt="معرض اسبوع البناء" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">حالي</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض اسبوع البناء</h3>
+                            <p class="text-gray-600 text-sm mb-4">معرض دولي رائد في قطاع البناء، يجمع كبار المقاولين وموردي مواد البناء.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>برمنغهام, بريطانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>30 سبتمبر - 2 أكتوبر 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full btn-primary text-white font-semibold py-2 px-4 rounded-lg" onclick="openModal('معرض اسبوع البناء', 'يعتبر المعرض حدثًا رائدًا في قطاع البناء والتشييد، حيث يعرض أحدث الابتكارات في مواد البناء، التكنولوجيا، والحلول المستدامة. يجمع المعرض المهندسين، والمقاولين، والمطورين.', 'برمنغهام، بريطانيا', '30 سبتمبر - 2 أكتوبر 2025', 'المقاولون، المهندسون، موردي مواد البناء', 'ri-building-4-line')">تفاصيل أكثر</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=EMO%20Hannover%20exhibition%2C%20metalworking%2C%20production%20technology&width=600&height=400&seq=emo" alt="معرض EMO" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">حالي</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض EMO لتكنولوجيا الإنتاج</h3>
+                            <p class="text-gray-600 text-sm mb-4">المعرض الرائد في تكنولوجيا الإنتاج، يستهدف شركات التجارة العامة.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>هانوفر, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>22 - 26 سبتمبر 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full btn-primary text-white font-semibold py-2 px-4 rounded-lg" onclick="openModal('معرض EMO لتكنولوجيا الإنتاج', 'معرض عالمي لتكنولوجيا تصنيع المعادن، يعرض أحدث الماكينات، الأدوات، والأنظمة. يعد منصة هامة للشركات الصناعية والمهندسين.', 'هانوفر، ألمانيا', '22 - 26 سبتمبر 2025', 'شركات التصنيع، المهندسون، خبراء تكنولوجيا الإنتاج', 'ri-tools-line')">تفاصيل أكثر</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=Interlift%20exhibition%2C%20elevators%2C%20escalators%2C%20modern%20building&width=600&height=400&seq=interlift" alt="معرض Interlift" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">حالي</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض Interlift للمصاعد</h3>
+                            <p class="text-gray-600 text-sm mb-4">حدث سنوي يضم مجموعة واسعة من الشركات العالمية المتخصصة في تصنيع المصاعد.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>نورمبرغ, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>14 - 17 أكتوبر 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full btn-primary text-white font-semibold py-2 px-4 rounded-lg" onclick="openModal('معرض Interlift للمصاعد', 'يعد المعرض منصة عالمية لقطاع المصاعد والسلالم المتحركة، حيث يجمع المصنعين، الموردين، والمهندسين لعرض أحدث التقنيات والابتكارات في هذا المجال.', 'نورمبرغ، ألمانيا', '14 - 17 أكتوبر 2025', 'شركات تصنيع المصاعد، المهندسون، الموردون', 'ri-elevator-line')">تفاصيل أكثر</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=drinktec%20exhibition%20Munich%2C%20beverage%20and%20liquid%20food%20industry&width=600&height=400&seq=drinktec" alt="معرض drinktec" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">حالي</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض drinktec لصناعة المشروبات</h3>
+                            <p class="text-gray-600 text-sm mb-4">يجمع أهم الشركات المصنعة للمشروبات والأغذية السائلة.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>ميونخ, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>15 - 19 سبتمبر 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full btn-primary text-white font-semibold py-2 px-4 rounded-lg" onclick="openModal('معرض drinktec لصناعة المشروبات', 'يُعتبر المعرض الحدث الأبرز عالميًا في صناعة المشروبات والأغذية السائلة، حيث يعرض أحدث التقنيات في الإنتاج، التعبئة، والخدمات اللوجستية.', 'ميونخ، ألمانيا', '15 - 19 سبتمبر 2025', 'شركات المشروبات، مصانع الأغذية السائلة، خبراء التعبئة', 'ri-cup-line')">تفاصيل أكثر</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="past-tab" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=international%20furniture%20fair%20cologne%2C%20modern%20furniture%20design&width=600&height=400&seq=furniture" alt="معرض الأثاث" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full">سابق</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">المعرض الدولي لصناعة الأثاث</h3>
+                            <p class="text-gray-600 text-sm mb-4">يعرض أحدث الاتجاهات العالمية في صناعة الأثاث وتصاميم الديكورات الداخلية.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>كولونيا, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>20 - 23 مايو 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-lg cursor-not-allowed">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=iba%20bakery%20exhibition%20dusseldorf%2C%20pastries%2C%20confectionery&width=600&height=400&seq=iba" alt="معرض iba" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full">سابق</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض iba لصناعة الحلويات</h3>
+                            <p class="text-gray-600 text-sm mb-4">يعد أكبر معرض عالمي متخصص في صناعة المعجنات والحلويات.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>دوسلدورف, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>18 - 22 مايو 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-lg cursor-not-allowed">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=Intersolar%20exhibition%20Munich%2C%20solar%20panels%2C%20renewable%20energy&width=600&height=400&seq=intersolar" alt="معرض الطاقة الشمسية" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full">سابق</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض الطاقة الشمسية Intersolar</h3>
+                            <p class="text-gray-600 text-sm mb-4">معرض للطاقة البديلة، يستقطب أهم الشركات العالمية المصنعة للطاقة الشمسية.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>ميونخ, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>7 - 9 مايو 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-lg cursor-not-allowed">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                    
+                    <div class="exhibition-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://readdy.ai/api/search-image?query=BAU%20exhibition%20Munich%2C%20architecture%2C%20construction%20materials&width=600&height=400&seq=bau" alt="معرض BAU" class="exhibition-image w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full">سابق</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">معرض BAU 2025 للهندسة المعمارية</h3>
+                            <p class="text-gray-600 text-sm mb-4">يستقطب العاملين في مجال البناء من شركات مقاولات ومكاتب هندسية.</p>
+                            <div class="flex items-center text-gray-500 text-sm mb-2"><i class="ri-map-pin-line mr-2 text-primary"></i>ميونخ, ألمانيا</div>
+                            <div class="flex items-center text-gray-500 text-sm"><i class="ri-calendar-line mr-2 text-primary"></i>14 - 19 أبريل 2025</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t">
+                            <button class="w-full bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-lg cursor-not-allowed">عرض التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="exhibitionModal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 py-8 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-black bg-opacity-75 transition-opacity duration-300 ease-out" id="modal-backdrop"></div>
+            <span class="hidden sm:inline-block sm:h-screen align-middle" aria-hidden="true">&#8203;</span>
+    
+            <div class="inline-block align-bottom bg-white rounded-3xl text-right overflow-hidden shadow-2xl transform transition-all duration-300 ease-out translate-y-full opacity-0 scale-95 sm:my-8 sm:align-middle w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2">
+                <div class="relative bg-white rounded-t-3xl p-6">
+                    <button type="button" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 transition-colors duration-300" onclick="closeModal()">
+                        <span class="sr-only">إغلاق</span>
+                        <i class="ri-close-circle-fill text-2xl"></i>
+                    </button>
+    
+                    <div class="flex items-center mb-4 border-b pb-4">
+                        <i id="modal-icon" class="ri-briefcase-line text-4xl text-primary ml-4"></i>
+                        <div>
+                            <h2 id="modal-title" class="text-3xl font-bold text-gray-900 leading-tight"></h2>
+                            <p id="modal-description" class="mt-1 text-sm text-gray-600"></p>
+                        </div>
+                    </div>
+    
+                    <div class="text-right">
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="ri-map-pin-line text-xl text-accent ml-2"></i>
+                                <div class="flex-1">
+                                    <span class="block font-semibold">الموقع:</span>
+                                    <span id="modal-location" class="block text-gray-600"></span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-calendar-line text-xl text-accent ml-2"></i>
+                                <div class="flex-1">
+                                    <span class="block font-semibold">التاريخ:</span>
+                                    <span id="modal-date" class="block text-gray-600"></span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-group-line text-xl text-accent ml-2"></i>
+                                <div class="flex-1">
+                                    <span class="block font-semibold">الفئة المستهدفة:</span>
+                                    <span id="modal-target-audience" class="block text-gray-600"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="bg-gray-50 px-6 py-4 flex flex-col sm:flex-row-reverse sm:justify-between items-center">
+                    <a href="#" id="modal-contact-link" class="w-full sm:w-auto btn-primary text-white font-semibold py-3 px-6 rounded-lg text-center whitespace-nowrap mb-2 sm:mb-0">
+                        <i class="ri-phone-line ml-2"></i> تواصل معنا للمشاركة
+                    </a>
+                    <span class="text-sm text-gray-500">شركة الموج للمعارض الدولية</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 جميع الحقوق محفوظة لشركة الموج للمعارض الدولية.</p>
+            <p class="text-sm mt-2">تصميم وتطوير بواسطة فريق الموج.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.dataset.tab;
+                
+                // Deactivate all buttons and hide all contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.add('hidden'));
+                
+                // Activate the clicked button and show its content
+                button.classList.add('active');
+                document.getElementById(targetTab + '-tab').classList.remove('hidden');
+            });
+        });
+
+        // Function to open the modal with dynamic content
+        function openModal(title, description, location, date, audience, iconClass) {
+            // Get modal elements
+            const modal = document.getElementById('exhibitionModal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalLocation = document.getElementById('modal-location');
+            const modalDate = document.getElementById('modal-date');
+            const modalTargetAudience = document.getElementById('modal-target-audience');
+            const modalIcon = document.getElementById('modal-icon');
+            
+            // Populate modal with content
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalLocation.textContent = location;
+            modalDate.textContent = date;
+            modalTargetAudience.textContent = audience;
+            modalIcon.className = `ri-fw text-4xl text-primary ml-4 ${iconClass}`;
+            
+            // Show the modal
+            modal.classList.remove('hidden');
+            // Add transition classes for a smooth entry animation
+            setTimeout(() => {
+                modal.querySelector('.transform').classList.add('translate-y-0', 'opacity-100', 'scale-100');
+                modal.querySelector('.transform').classList.remove('translate-y-full', 'opacity-0', 'scale-95');
+            }, 10);
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('exhibitionModal');
+            // Add transition classes for a smooth exit animation
+            modal.querySelector('.transform').classList.add('translate-y-full', 'opacity-0', 'scale-95');
+            modal.querySelector('.transform').classList.remove('translate-y-0', 'opacity-100', 'scale-100');
+            
+            // Hide the modal after the animation
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Match this duration with the CSS transition duration
+        }
+
+        // Close modal when clicking on the backdrop
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        if (modalBackdrop) {
+            modalBackdrop.addEventListener('click', closeModal);
+        }
+    </script>
+</body>
+</html>
